@@ -76,24 +76,5 @@
     }
   });
 
-  document.getElementById('color').addEventListener('change', (e) => {
-    if (model) {
-      const col = parseInt(e.target.value);
-      model.traverse((child) => {
-        if (child.isMesh) {
-          child.material.color.setHex(col);
-        }
-      });
-    }
-  });
+  document.getElementById('color'
 
-  function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.render(scene, camera);
-  }
-  animate();
-</script>
-
-</body>
-</html>
