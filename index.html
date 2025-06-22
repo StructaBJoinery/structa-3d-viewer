@@ -60,9 +60,9 @@ let loader = new GLTFLoader();
 let model;
 
 // Load the new .glb file
-loader.load('IPS_Panel_Assemply-Assembly.glb', function(gltf) {
-  console.log('Model loaded:', gltf.scene);
-  model = gltf.scene;
+loader.load('IPS_Panel_Assemply-Assembly.glb', function(glb) {
+  console.log('Model loaded:', glb.scene);
+  model = glb.scene;
   model.scale.set(10, 10, 10); // Boost scale for visibility
   model.position.set(0, 0, 0);
   scene.add(model);
