@@ -34,7 +34,7 @@
 
 <script type="module">
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
-import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
+import { GLBLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLBLoader.js';
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/OrbitControls.js';
 
 let scene = new THREE.Scene();
@@ -56,7 +56,7 @@ scene.add(dirLight);
 
 let controls = new OrbitControls(camera, renderer.domElement);
 
-let loader = new GLTFLoader();
+let loader = new GLBLoader();
 let model;
 
 // Load the new .glb file
