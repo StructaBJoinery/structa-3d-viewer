@@ -10,7 +10,7 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255, 255, 255, 0.8);
       padding: 10px;
       border-radius: 4px;
       z-index: 1;
@@ -20,7 +20,9 @@
 <body>
 
 <div id="ui">
-  <label>Width: <input type="range" id="width" min="0.5" max="2" step="0.1" value="1"></label><br>
+  <label>Width: 
+    <input type="range" id="width" min="0.5" max="2" step="0.1" value="1">
+  </label><br>
   <label>Color:
     <select id="color">
       <option value="0xC8A165">Oak</option>
@@ -57,17 +59,17 @@ let controls = new OrbitControls(camera, renderer.domElement);
 let loader = new GLTFLoader();
 let model;
 
-loader.load('IPS_Panel_Assemply-Assembly.gltf', function(gltf) {
+// Load the new .glb file
+loader.load('IPS_Panel_Assemply-Assembly.glb', function(gltf) {
   console.log('Model loaded:', gltf.scene);
   model = gltf.scene;
   model.scale.set(10, 10, 10); // Boost scale for visibility
   model.position.set(0, 0, 0);
   scene.add(model);
 
-  // Optional: force bright color for visibility
   model.traverse((child) => {
     if (child.isMesh) {
-      child.material.color.setHex(0x00ff00);
+      child.material.color.setHex(0x00ff00); // Debug green
     }
   });
 
@@ -85,7 +87,7 @@ window.addEventListener('resize', () => {
 document.getElementById('width').addEventListener('input', (e) => {
   if (model) {
     const val = parseFloat(e.target.value);
-    model.scale.x = val * 10;  // Adjust for the boosted scale
+    model.scale.x = val * 10;
   }
 });
 
@@ -110,3 +112,4 @@ animate();
 
 </body>
 </html>
+
